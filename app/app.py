@@ -1,13 +1,12 @@
-import socket
 from flask import Flask
+from flask import render_template
+
 app = Flask(__name__)
 
-@app.route("/")
-def hello():
-    html = "<h3>Hello Peiter!</h3>" \
-           "<b>Hostname:</b> {hostname}<br/>" 
 
-    return html.format(hostname=socket.gethostname())
+@app.route("/")
+def index():
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
